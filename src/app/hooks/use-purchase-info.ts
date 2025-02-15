@@ -11,11 +11,8 @@ export function useDiscountCode() {
   if (!data) {
     return undefined
   }
-  const { discount, campaign } = data
+  const { discount } = data
   if (discount && dayjs(discount.startTime).add(1, 'day').isAfter()) {
     return discount.code
-  }
-  if (campaign) {
-    return campaign.code
   }
 }
